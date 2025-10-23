@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Wow!!</title>
+</head>
+<body>
+<div id="hi"></div>
+
+  <script>
+    let hi = document.getElementById("hi");
+    hi.addEventListener("dblclick", function () {
+      let hiValue = hi.innerHTML;
+      hi.innerHTML = '';
+      console.log(hiValue);
+      let inp = createInp(hi);
+      inp.value = hiValue;
+    })
+
+    hi.addEventListener("dblclick", function () {
+      let hiValue = hi.innerHTML;
+      hi.innerHTML = '';
+      console.log(hiValue);
+      let inp = createInp(hi);
+      inp.value = hiValue;
+    })
+    
+  
+    function createInp(parent) {
+      let el = document.createElement("textarea");
+      parent.appendChild(el);
+      return el;
+    }
+  </script>
+
+  <script src=scripts/functions.js></script>
+  
+  <script src=scripts/newItem.js></script>
+</body>
+</html>

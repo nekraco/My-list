@@ -1,0 +1,50 @@
+div, textarea, input {
+	font-family: "Roboto", "Verdana";
+	font-size: 18px;
+}
+
+body {
+	background: #444;
+	//border: solid 1px red;
+/ / width: 100 vw;
+	//height: 100vh;
+	margin: 0;
+	box-sizing: border-box;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+}
+
+ .back0 {
+	 height: 20px;
+ }
+
+
+.classBackItem {
+	height: 20px;
+}
+
+.classBackText {
+	height: 100px;
+	text-align: left;
+	color: orange;
+}
+
+textarea, input {
+	//width: 90%;
+	//height: 40px;
+	background: #333;
+	color: white;
+	border: 0;
+	outline: none;
+	padding: 0;
+	resize: vertical;
+}
+
+#hi {
+	width: 500px;
+	height: 50px;
+	background: dodgerblue;
+}
+
+
