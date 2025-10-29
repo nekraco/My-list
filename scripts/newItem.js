@@ -3,7 +3,7 @@ let b = document.querySelector("body");
 
 let [fr, ba, bu1, bu2] = createUniversalField(b, "back0", 2);
 fr.innerHTML = "Creates a new item";
-fr.style.background = "red";
+fr.style.background = "blue";
 
 bu1.addEventListener("click", function () {
 	let wrap = crEl(b, "wrap");
