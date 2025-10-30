@@ -47,4 +47,42 @@ textarea, input {
 	background: dodgerblue;
 }
 
+/*******************************************/
+
+.cWrap {
+	//border: solid 2px wheat;
+	box-sizing: border-box;
+
+}
+
+.cfCreate, .cfName, .cfText, .cTextarea {
+	background: darkred;
+	width: 100%;
+	height: 25px;
+	//border: solid 2px greenyellow;
+	//box-sizing: border-box;
+}
+
+.cfName {
+	background: dodgerblue;
+	//border: solid 1px greenyellow;
+	box-sizing: border-box;
+}
+
+.cfText {
+	background: orange;
+	height: 50px;
+}
+
+.cTextarea {
+	background: darkseagreen;
+	height: 400px;
+	
+}
+
+
+
+
+
+
 

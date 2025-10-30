@@ -1,27 +1,27 @@
 let b = document.querySelector("body");
 
 
-let [fr, ba, bu1, bu2] = createUniversalField(b, "back0", 2);
-fr.innerHTML = "Creates a new item";
-fr.style.background = "blue";
+//let [fr, ba, bu1, bu2] = createUniversalField(b, "back0", 2);
+//fr.innerHTML = "Creates a new item";
+//fr.style.background = "blue";
 
-bu1.addEventListener("click", function () {
-	let wrap = crEl(b, "wrap");
-	let [fr, ba, but0] = createUniversalField(b, "classBackItem", 2);
-	wrap.appendChild(fr);
-	wrap.appendChild(ba);
-	//bindInputs("textarea");
-
-	but0.addEventListener("click", function () {
-
-		createUniversalField(wrap, "classBackText", 2);
-		balancingSizesFrontBack();
-		bindInputs("textarea");
+//bu1.addEventListener("click", function () {
+// 	let wrap = crEl(b, "wrap");
+// 	let [fr, ba, but0] = createUniversalField(b, "classBackItem", 2);
+// 	wrap.appendChild(fr);
+// 	wrap.appendChild(ba);
+// 	//bindInputs("textarea");
+//
+// 	but0.addEventListener("click", function () {
+//
+// 		createUniversalField(wrap, "classBackText", 2);
+// 		balancingSizesFrontBack();
+// 		bindInputs("textarea");
 		//console.log(FrontsAr)
 		//console.log(BacksAr)
-	})
+	//})
 
-})
+//})
 
 
 function bindInputs(typeInput) {
@@ -73,5 +73,7 @@ function balancingSizesFrontBack() {
 // }
 
 //ff(hi, 'innerHTML')
+
+
 
 
