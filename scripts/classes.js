@@ -67,9 +67,9 @@ class Field {
 
 	//composite === true, значит является составным элементом, в том смысле, что в него будут
 	// вставляться другие
-	createUniversalField(parent, addClassField, numButs, composite) {
+	createUniversalField(parent, addClassField, numButs, compositeField) {
 		let parentField;
-		if (composite) {
+		if (compositeField) {
 			parentField = this.createElement(parent, "cWrap", "div");
 		} else {
 			parentField = parent;
