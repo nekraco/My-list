@@ -39,6 +39,7 @@ body {
 .cfText {
 	background: orange;
 	height: 50px;
+	text-align: left;
 }
 
 .cTextarea {

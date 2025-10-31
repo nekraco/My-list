@@ -1,5 +1,3 @@
-let m = document.getElementById("main");
-
 class Field {
 	constructor(parent, addClassField, numButs, composite, autoColor) {
 		this.classWraperField = "cWrapField";
@@ -36,19 +34,26 @@ class Field {
 		for (let i = 0; i < wrapsField.length; i++) {
 			let front = wrapsField[i].children[0];
 			let back = wrapsField[i].children[1];
-			frontFormatCoords(front, back);
+			this.frontFormatCoords(front, back);
 		}
+	}
 
-		function frontFormatCoords(front, back) {
-			front.style.left = back.offsetLeft + "px";
-			front.style.top = back.offsetTop + "px";
-		}
+	frontFormatCoords(front, back) {
+		front.style.left = back.offsetLeft + "px";
+		front.style.top = back.offsetTop + "px";
 	}
 
 	frontFormatColor() {
 		let [col1, col2] = formatColors();
 		this.front.style.color = col1;
 		this.front.style.background = col2;
+	}
+
+	backFormatSizes(back, front) {
+		back.style.height = front.offsetHeight + "px";
+		for (let i = 0; i < back.children.length; i++) {
+			back.children[i].style.height = front.offsetHeight + "px";
+		}
 	}
 
 
@@ -70,8 +75,8 @@ class Field {
 		button.style.height = this.cssStylesField.height;
 	}
 
-	switchDisplayTextarea(statusValue) {
-		this.textarea.style.display = statusValue;
+	switchDisplayElement(elem, statusValue) {
+		this[elem].style.display = statusValue;
 	}
 
 	//composite === true, значит является составным элементом, в том смысле, что в него будут
@@ -86,12 +91,10 @@ class Field {
 		this.wrapField = this.createElement(parentField, this.classWraperField, "div");
 		this.front = this.createElement(this.wrapField, addClassField, "div");
 		this.back = this.createElement(this.wrapField, addClassField, "div");
-		this.front.classList.add("cF");
-		this.back.classList.add("cB");
 
 		this.textarea = this.createElement(this.wrapField, "cTextarea", "textarea");
 		this.specialFormat();
-		this.switchDisplayTextarea("none");
+		this.switchDisplayElement("textarea", "none");
 
 
 		for (let i = 0; i < numButs; i++) {
@@ -143,7 +146,7 @@ function formatColors() {
 
 
 function convertDecInHex(num) {
-	let objConvert = {"a": 10, "b": 11, "c": 12,  "d": 13,  "e": 14,  "f": 15};
+	let objConvert = {"a": 10, "b": 11, "c": 12, "d": 13, "e": 14, "f": 15};
 
 	if (num < 10) {
 		return num;
