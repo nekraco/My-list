@@ -1,12 +1,15 @@
 let m = document.getElementById("main");
 
 class Field {
-	constructor(parent, addClassField, numButs, composite) {    // autoColor = true/false
+	constructor(parent, addClassField, numButs, composite, autoColor) {
 		this.classWraperField = "cWrapField";
 		this.createUniversalField(parent, addClassField, numButs, composite);
 		this.cssStylesField = getComputedStyle(this.back);
 		//this.splitFrontBack();
 		this.frontsFormatAll();
+		if (autoColor) {
+			this.frontFormatColor();
+		}
 
 		this.buts = Array.from(this.back.children);
 		for (let i = 0; i < this.buts.length; i++) {
@@ -40,6 +43,12 @@ class Field {
 			front.style.left = back.offsetLeft + "px";
 			front.style.top = back.offsetTop + "px";
 		}
+	}
+
+	frontFormatColor() {
+		let [col1, col2] = formatColors();
+		this.front.style.color = col1;
+		this.front.style.background = col2;
 	}
 
 
@@ -98,3 +107,51 @@ class Field {
 	}
 }
 
+function formatColors() {
+	let arRes = [];
+	let st1 = "#";
+	let st2 = "#";
+	for (let i = 0; i < 3; i++) {
+		let ar = getTwo(8);   // !!!!!!!!! менять цвета
+		st1 += ar[0];
+		st2 += ar[1];
+	}
+	arRes[0] = st1;
+	arRes[1] = st2;
+	return arRes;
+
+
+	function getTwo(n) {
+		let max = 15;
+		let arRes = [];
+		let ran = random(max);
+		let ran2;
+		if (ran + n <= max) {
+			ran2 = ran + n;
+		} else {
+			ran2 = ran + n - max;
+		}
+		arRes[0] = convertDecInHex(ran);
+		arRes[1] = convertDecInHex(ran2);
+		return arRes;
+	}
+
+	function random(max) {
+		return Math.floor(Math.random() * (max - 1));
+	}
+}
+
+
+function convertDecInHex(num) {
+	let objConvert = {"a": 10, "b": 11, "c": 12,  "d": 13,  "e": 14,  "f": 15};
+
+	if (num < 10) {
+		return num;
+	} else {
+		for (let key in objConvert) {
+			if (num === objConvert[key]) {
+				return key;
+			}
+		}
+	}
+}

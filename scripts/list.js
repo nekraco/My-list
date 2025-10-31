@@ -2,16 +2,16 @@
 
 
 
-let fCreate = new Field(m, "cfCreate", 5, false);
+let fCreate = new Field(m, "cfCreate", 5, false, false);
 fCreate.front.innerHTML = "Create an item";
 
 //***************
 
 fCreate.buts[0].addEventListener("dblclick", () => {
-	let fName = new Field(m, "cfName", 3, true);
+	let fName = new Field(m, "cfName", 3, true, true);
 
 	fName.buts[0].addEventListener("dblclick", () => {
-		let fText = new Field(fName.wrapField, "cfText", 3, false);
+		let fText = new Field(fName.wrapField, "cfText", 3, false, true);
 
 	})
 
