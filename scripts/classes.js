@@ -1,13 +1,11 @@
 let m = document.getElementById("main");
 
 class Field {
-	constructor(parent, addClassField, numButs) {    // autoColor = true/false
-		this.createUniversalField(parent, addClassField, numButs);
+	constructor(parent, addClassField, numButs, composite) {    // autoColor = true/false
+		this.createUniversalField(parent, addClassField, numButs, composite);
 		this.cssStylesField = getComputedStyle(this.back);
+		//this.splitFrontBack();
 
-		//let ww = parseInt(this.cssStylesField.width) - 500;   // Наглядное разделение back и front
-		//this.front.style.width = ww + "px";
-		//this.front.style.border = "solid 2px red";
 
 		let allF = document.getElementsByClassName("cF");  // Долго искал решение
 		let allB = document.getElementsByClassName("cB");
@@ -21,6 +19,12 @@ class Field {
 			this.buttonFormat(this.buts[i], numButs);
 		}
 
+	}
+
+	splitFrontBack() {
+		let ww = parseInt(this.cssStylesField.width) - 500;   // Наглядное разделение back и front
+		this.front.style.width = ww + "px";
+		this.front.style.border = "solid 2px red";
 	}
 
 	createElement(parent, addClass, type) {
@@ -60,14 +64,22 @@ class Field {
 		this.textarea.style.display = statusValue;
 	}
 
-	createUniversalField(parent, addClassField, numButs) {
-		this.wrap = this.createElement(parent, "cWrap", "div");
-		this.front = this.createElement(this.wrap, addClassField, "div");
-		this.back = this.createElement(this.wrap, addClassField, "div");
+	//composite === true, значит является составным элементом, в том смысле, что в него будут
+	// вставляться другие
+	createUniversalField(parent, addClassField, numButs, composite) {
+		let parentField;
+		if(composite) {
+			parentField = this.createElement(parent, "cWrap", "div");
+		} else {
+			parentField = parent;
+		}
+		this.wrapField = this.createElement(parentField, "cWrapField", "div");
+		this.front = this.createElement(this.wrapField, addClassField, "div");
+		this.back = this.createElement(this.wrapField, addClassField, "div");
 		this.front.classList.add("cF");
 		this.back.classList.add("cB");
 
-		this.textarea = this.createElement(this.wrap, "cTextarea", "textarea");
+		this.textarea = this.createElement(this.wrapField, "cTextarea", "textarea");
 		this.specialFormat();
 		this.frontFormatCoords(this.back, this.front);
 		this.switchDisplayTextarea("none");
@@ -78,20 +90,26 @@ class Field {
 
 		}
 	}
+
+	getBrothers(el) {
+		let parent = el.parentElement;
+		let allChildren = Array.from(parent.children);
+		let siblings = allChildren.filter(child => child !== el);
+	}
 }
 
 //UUUUUUUUUUUUUUUU
 
-let fCreate = new Field(m, "cfCreate", 5);
+let fCreate = new Field(m, "cfCreate", 5, false);
 fCreate.front.innerHTML = "Create an item";
 
 //***************
 
 fCreate.buts[0].addEventListener("dblclick", () => {
-	let fName = new Field(m, "cfName", 3);
+	let fName = new Field(m, "cfName", 3, true);
 
 	fName.buts[0].addEventListener("dblclick", () => {
-		let fText = new Field(fName.wrap, "cfText", 3);
+		let fText = new Field(fName.wrapField, "cfText", 3, false);
 
 	})
 
