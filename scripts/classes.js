@@ -2,19 +2,13 @@ let m = document.getElementById("main");
 
 class Field {
 	constructor(parent, addClassField, numButs, composite) {    // autoColor = true/false
+		this.classWraperField = "cWrapField";
 		this.createUniversalField(parent, addClassField, numButs, composite);
 		this.cssStylesField = getComputedStyle(this.back);
 		//this.splitFrontBack();
-
-
-		let allF = document.getElementsByClassName("cF");  // Долго искал решение
-		let allB = document.getElementsByClassName("cB");
-		for (let i = 0; i < allF.length; i++) {
-			this.frontFormatCoords(allB[i], allF[i]);
-		}
+		this.frontsFormatAll();
 
 		this.buts = Array.from(this.back.children);
-
 		for (let i = 0; i < this.buts.length; i++) {
 			this.buttonFormat(this.buts[i], numButs);
 		}
@@ -34,11 +28,18 @@ class Field {
 		return el;
 	}
 
-	frontFormatCoords(back, front) {
-		this.x = back.offsetLeft + "px";
-		this.y = back.offsetTop + "px";
-		front.style.left = this.x;
-		front.style.top = this.y;
+	frontsFormatAll() {
+		let wrapsField = document.getElementsByClassName(this.classWraperField);
+		for (let i = 0; i < wrapsField.length; i++) {
+			let front = wrapsField[i].children[0];
+			let back = wrapsField[i].children[1];
+			frontFormatCoords(front, back);
+		}
+
+		function frontFormatCoords(front, back) {
+			front.style.left = back.offsetLeft + "px";
+			front.style.top = back.offsetTop + "px";
+		}
 	}
 
 
@@ -68,12 +69,12 @@ class Field {
 	// вставляться другие
 	createUniversalField(parent, addClassField, numButs, composite) {
 		let parentField;
-		if(composite) {
+		if (composite) {
 			parentField = this.createElement(parent, "cWrap", "div");
 		} else {
 			parentField = parent;
 		}
-		this.wrapField = this.createElement(parentField, "cWrapField", "div");
+		this.wrapField = this.createElement(parentField, this.classWraperField, "div");
 		this.front = this.createElement(this.wrapField, addClassField, "div");
 		this.back = this.createElement(this.wrapField, addClassField, "div");
 		this.front.classList.add("cF");
@@ -81,7 +82,6 @@ class Field {
 
 		this.textarea = this.createElement(this.wrapField, "cTextarea", "textarea");
 		this.specialFormat();
-		this.frontFormatCoords(this.back, this.front);
 		this.switchDisplayTextarea("none");
 
 
