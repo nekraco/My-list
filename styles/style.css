@@ -15,39 +15,6 @@ body {
 	font-size: 20px;
 }
 
- .back0 {
-	 height: 20px;
- }
-
-
-.classBackItem {
-	height: 20px;
-}
-
-.classBackText {
-	height: 100px;
-	text-align: left;
-	color: orange;
-}
-
-textarea, input {
-	//width: 90%;
-	//height: 40px;
-	background: #333;
-	color: white;
-	border: 0;
-	outline: none;
-	padding: 0;
-	resize: vertical;
-}
-
-#hi {
-	width: 500px;
-	height: 50px;
-	background: dodgerblue;
-}
-
-/*******************************************/
 
 .cWrap {
 	//border: solid 2px wheat;
@@ -80,11 +47,6 @@ textarea, input {
 	
 }
 
-/*.cWrap {*/
-/*	border: solid 5px red;*/
-/*	box-sizing: border-box;*/
-/*	width: 100%;*/
-/*}*/
 
 
 
