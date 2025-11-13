@@ -39,6 +39,7 @@ body {
 .cfText {
 	background: orange;
 	height: 50px;
+	//height: auto;
 	text-align: left;
 }
 
@@ -48,6 +49,43 @@ body {
 	
 }
 
+.a, .b, .c, .d, .e, .f, .g, .h{
+	width: 100px;
+	height: 25px;
+	border: solid 3px white;
+}
+
+.a{
+	background: #f00;
+}
+
+.b{
+	background: #0f0;
+}
+
+.c{
+	background: #00f;
+}
+
+.d{
+	background: #ff0;
+}
+
+.e{
+	background: #f0f;
+}
+
+.f{
+	background: #0ff;
+}
+
+.g{
+	background: #80f;
+}
+
+.h{
+	background: #080;
+}
 
 
 

@@ -3,7 +3,7 @@ class Field {
 		this.classWraperField = "cWrapField";
 		this.createUniversalField(parent, addClassField, numButs, composite);
 		this.cssStylesField = getComputedStyle(this.back);
-		//this.splitFrontBack();
+		this.splitFrontBack();
 		this.frontsFormatAll();
 		if (autoColor) {
 			this.frontFormatColor();
@@ -101,6 +101,15 @@ class Field {
 			this.createElement(this.back, "cBut", "div");
 
 		}
+	}
+
+	addTextToField(text) {
+		this.front.innerHTML = text;
+		this.back.innerHTML = text;
+		this.front.style.height = "auto";
+		this.back.style.height = "auto";
+
+		this.frontsFormatAll();
 	}
 
 	getBrothers(el) {

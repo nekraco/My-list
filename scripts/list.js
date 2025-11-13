@@ -18,8 +18,8 @@ fCreate.buts[0].addEventListener("dblclick", () => {
 		})
 		fText.textarea.addEventListener("dblclick", () => {
 			fText.switchDisplayElement("textarea", "none");
-			fText.front.innerHTML = fText.textarea.value;
-			
+			fText.addTextToField(fText.textarea.value);
+
 		})
 	})
 
