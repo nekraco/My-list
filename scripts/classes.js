@@ -1,14 +1,16 @@
 class Field {
 	constructor(parent, addClassField, numButs, composite, autoColor) {
+
 		this.classWraperField = "cWrapField";
 		this.createUniversalField(parent, addClassField, numButs, composite);
 		this.cssStylesField = getComputedStyle(this.back);
-		this.splitFrontBack();
+		//this.splitFrontBack();
 		this.frontsFormatAll();
-		if (autoColor) {
+
+		if (autoColor === "t") {
 			this.frontFormatColor();
 		}
-
+		//console.log(this.cssStylesField.textAlign)
 		this.buts = Array.from(this.back.children);
 		for (let i = 0; i < this.buts.length; i++) {
 			this.buttonFormat(this.buts[i], numButs);
@@ -19,7 +21,8 @@ class Field {
 	splitFrontBack() {
 		let ww = parseInt(this.cssStylesField.width) - 500;   // Наглядное разделение back и front
 		this.front.style.width = ww + "px";
-		this.front.style.border = "solid 2px red";
+		//this.front.style.border = "solid 2px red";
+		//this.front.style.boxSizing = "border-box";
 	}
 
 	createElement(parent, addClass, type) {
@@ -36,6 +39,23 @@ class Field {
 			let back = wrapsField[i].children[1];
 			this.frontFormatCoords(front, back);
 		}
+	}
+ // except - кроме
+	displayAllExceptOne(oneEl, valueDisplayAll) {
+		let wrapsField = document.getElementsByClassName(this.classWraperField);
+		for (let i = 0; i < wrapsField.length; i++) {
+			if(oneEl !== wrapsField[i]) {
+				wrapsField[i].style.display = valueDisplayAll;
+			}
+		}
+		this.frontsFormatAll();
+	}
+
+	getItemOnButton(but) {
+		let back = but.parentElement;
+		let front = back.previousElementSibling;
+		let wrap = back.parentElement;
+		return wrap;
 	}
 
 	frontFormatCoords(front, back) {
@@ -62,6 +82,8 @@ class Field {
 		this.front.style.zIndex = "1";
 		this.front.style.pointerEvents = "none";
 		this.back.style.display = "flex";
+		//this.back.style.position = "absolute";
+
 		this.textarea.style.position = "absolute";
 		this.textarea.style.zIndex = "2";
 		this.textarea.style.top = "0px";
@@ -73,6 +95,8 @@ class Field {
 		let widthButton = parseInt(this.cssStylesField.width) / numButtons;
 		button.style.width = widthButton + "px";
 		button.style.height = this.cssStylesField.height;
+		//button.style.height = "25px"
+		//console.log(this.cssStylesField.height)
 	}
 
 	switchDisplayElement(elem, statusValue) {
@@ -83,16 +107,16 @@ class Field {
 	// вставляться другие
 	createUniversalField(parent, addClassField, numButs, compositeField) {
 		let parentField;
-		if (compositeField) {
+		if (compositeField === "t") {
 			parentField = this.createElement(parent, "cWrap", "div");
 		} else {
 			parentField = parent;
 		}
-		this.wrapField = this.createElement(parentField, this.classWraperField, "div");
-		this.front = this.createElement(this.wrapField, addClassField, "div");
-		this.back = this.createElement(this.wrapField, addClassField, "div");
+		this.wrap = this.createElement(parentField, this.classWraperField, "div");
+		this.front = this.createElement(this.wrap, addClassField, "div");
+		this.back = this.createElement(this.wrap, addClassField, "div");
 
-		this.textarea = this.createElement(this.wrapField, "cTextarea", "textarea");
+		this.textarea = this.createElement(this.wrap, "cTextarea", "textarea");
 		this.specialFormat();
 		this.switchDisplayElement("textarea", "none");
 
@@ -105,9 +129,9 @@ class Field {
 
 	addTextToField(text) {
 		this.front.innerHTML = text;
-		this.back.innerHTML = text;
+		//this.back.innerHTML = text;
 		this.front.style.height = "auto";
-		this.back.style.height = "auto";
+		//this.back.style.height = "auto";
 
 		this.frontsFormatAll();
 	}

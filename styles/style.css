@@ -1,91 +1,126 @@
 div, textarea, input {
 	font-family: "Roboto", "Verdana";
-	font-size: 18px;
+	font-size: 15px;
+	box-sizing: border-box;
 }
 
 body {
 	background: #444;
-	//border: solid 1px red;
+	//border: solid 3px red;
 / / width: 100 vw;
-	//height: 100vh;
+	height: 100vh;
 	margin: 0;
 	box-sizing: border-box;
-	text-align: center;
+	//text-align: center;
 	color: white;
-	font-size: 20px;
+	font-size: 10px;
+	text-align: right;
 }
 
-
-.cWrap {
-	//border: solid 2px wheat;
-	box-sizing: border-box;
-
+.cWrapField  {
+	//text-align: right;
 }
 
-.cfCreate, .cfName, .cfText, .cTextarea {
-	background: darkred;
+.cCreator {
+	background: #999;
 	width: 100%;
-	height: 25px;
-	//border: solid 2px greenyellow;
-	//box-sizing: border-box;
-}
-
-.cfName {
-	background: dodgerblue;
-	//border: solid 1px greenyellow;
-	box-sizing: border-box;
-}
-
-.cfText {
-	background: orange;
-	height: 50px;
 	//height: auto;
-	text-align: left;
+	box-sizing: border-box;
+	height: 25px;
+	text-align: center;
+	//border: solid 2px wheat;
 }
 
-.cTextarea {
-	background: darkseagreen;
-	height: 400px;
+.cName {
+	background: #999;
+	width: 100%;
+//height: auto;
+	box-sizing: border-box;
+	height: 25px;
+	text-align: center;
+//border: solid 2px #1cc;
+}
+
+.cBut {
+	background: green;
+	border: solid 2px red;
+	//width: 60px;
+	//height: 10px;
 	
 }
 
-.a, .b, .c, .d, .e, .f, .g, .h{
-	width: 100px;
-	height: 25px;
-	border: solid 3px white;
-}
 
-.a{
-	background: #f00;
-}
+/*.cWrap {*/
+/*	//border: solid 2px wheat;*/
+/*	box-sizing: border-box;*/
 
-.b{
-	background: #0f0;
-}
+/*}*/
 
-.c{
-	background: #00f;
-}
+/*.cfCreate, .cfName, .cfText, .cTextarea {*/
+/*	background: darkred;*/
+/*	width: 100%;*/
+/*	height: 25px;*/
+/*	//border: solid 2px greenyellow;*/
+/*	//box-sizing: border-box;*/
+/*}*/
 
-.d{
-	background: #ff0;
-}
+/*.cfName {*/
+/*	background: dodgerblue;*/
+/*	//border: solid 1px greenyellow;*/
+/*	box-sizing: border-box;*/
+/*}*/
 
-.e{
-	background: #f0f;
-}
+/*.cfText {*/
+/*	background: orange;*/
+/*	height: 50px;*/
+/*	//height: auto;*/
+/*	//text-align: left;*/
+/*}*/
 
-.f{
-	background: #0ff;
-}
+/*.cTextarea {*/
+/*	background: darkseagreen;*/
+/*	height: 400px;*/
+/*	*/
+/*}*/
 
-.g{
-	background: #80f;
-}
+/*.a, .b, .c, .d, .e, .f, .g, .h{*/
+/*	width: 500px;*/
+/*	height: 25px;*/
+/*	//border: solid 3px white;*/
+/*	//position: absolute;*/
+/*}*/
 
-.h{
-	background: #080;
-}
+/*.a{*/
+/*	background: #f00;*/
+/*}*/
+
+/*.b{*/
+/*	background: #0f0;*/
+/*}*/
+
+/*.c{*/
+/*	background: #00f;*/
+/*}*/
+
+/*.d{*/
+/*	background: #ff0;*/
+/*}*/
+
+/*.e{*/
+/*	background: #f0f;*/
+/*}*/
+
+/*.f{*/
+/*	background: #0ff;*/
+/*}*/
+
+/*.g{*/
+/*	background: #80f;*/
+/*}*/
+
+/*.h{*/
+/*	background: #080;*/
+/*}*/
 
 
 
